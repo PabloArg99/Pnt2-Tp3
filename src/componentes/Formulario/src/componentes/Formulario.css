@@ -1,0 +1,21 @@
+.jumbotron {
+    background-color: #A69080;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+hr {
+    background-color: #eee;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+pre {
+    color: white;
+}
+
