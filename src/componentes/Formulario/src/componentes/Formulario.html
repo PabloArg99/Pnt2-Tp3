@@ -1,0 +1,75 @@
+<section class="src-componentes-formulario">
+  <div class="jumbotron">
+    <h2>Trabajo Practio 3 - Pablo Toloza</h2>
+    <hr>
+
+    <form novalidate @submit.prevent="enviar()">
+      <!-- Campo nombre -->
+      <div class="form-group">
+        <label for="nombre">nombre</label>
+        <input 
+          id="nombre" 
+          type="text" 
+          class="form-control" 
+          v-model.trim="nombreIngresado"
+          
+          
+        >
+        <!-- carteles de validación -->
+        <div v-if="
+            !comprobarNombre "
+            class="alert alert-danger mt-1"
+        >
+          <span v-if="!nombreIngresado">Campo requerido</span> 
+          
+          <span v-else="!comprobarNombre ">Este campo debe poseer entre 5 y 15 caracteres</span> 
+        </div>
+      </div>
+
+      <!-- Campo edad -->
+      <div class="form-group">
+        <label for="edad">edad</label>
+        <input id="edad" type="number" class="form-control" v-model.number="edadIngresada"  >
+        
+        <!-- carteles de validación -->
+        <div v-if="
+            !comprobarEdad "
+            class="alert alert-danger mt-1"
+        >
+          <span v-if="!edadIngresada">Campo requerido</span> 
+          <span v-else-if="edadIngresada <= 18">Debes ser mayor de 18 años</span> 
+          <span v-else="edadIngresada >= 120">No puedes tener mas de 120 años para registrarte</span> 
+        </div>
+      </div>
+
+      <!-- Campo email -->
+      <div class="form-group">
+        <label for="email">email</label>
+        <input id="email" type="email" class="form-control" v-model="emailIngresado"  >
+        
+        <!-- carteles de validación -->
+        <div v-if="!comprobarMail  " class="alert alert-danger mt-1">
+          No ingreso un email valido
+        </div>
+      </div>
+
+
+      <button 
+        class="btn btn-success my-3" 
+        :disabled="validarBotonEnvio()"
+      >Enviar</button>
+
+    </form>
+
+    <hr>
+    <p><u>Datos Ingresados </u></p>
+    <pre>Nombre : {{ nombreIngresado }}</pre>
+    <pre>Edad : {{ edadIngresada }}</pre>
+    <pre>Email : {{ emailIngresado }}</pre>
+
+    <hr>
+   
+
+  </div>
+</section>
+
